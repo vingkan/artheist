@@ -1,0 +1,20 @@
+title: My Game
+encoding: UTF-8
+url: "https://vingkan.github.io/artheist"
+baseurl: "/artheist"
+markdown: kramdown
+kramdown:
+    smart_quotes: ["apos", "apos", "quot", "quot"]
+
+collections:
+  characters:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "characters"
+    values:
+      layout: "character"
+      title: "{{ title | humanize }}"
