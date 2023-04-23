@@ -80,7 +80,7 @@
   </head>
   <body>
     <h1>Art Heist</h1>
-    <p>Enter your character code:</p>
+    <p>Enter your code:</p>
 
     <form>
       <input type="text" id="code-input" placeholder="Enter code" />
@@ -94,9 +94,9 @@
     </footer>
 
     <script>
-      const characters = {
-        {% for character in site.characters %}
-        "{{ character.code }}": "{{ site.baseurl }}{{ character.url }}",
+      const clues = {
+        {% for clue in site.clues %}
+        "{{ clue.code }}": "{{ site.baseurl }}{{ clue.url }}",
         {% endfor %}
       };
 
@@ -109,12 +109,12 @@
         event.preventDefault();
 
         const code = codeInput.value;
-        const filename = characters[code];
+        const filename = clues[code];
 
         if (filename) {
           window.location.href = `${filename}`;
         } else {
-          errorMessage.textContent = `No character found for code "${code}".`;
+          errorMessage.textContent = `Nothing found for code "${code}".`;
         }
       });
     </script>

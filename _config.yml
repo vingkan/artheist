@@ -7,14 +7,14 @@ kramdown:
     smart_quotes: ["apos", "apos", "quot", "quot"]
 
 collections:
-  characters:
+  clues:
     output: true
 
 defaults:
   -
     scope:
       path: ""
-      type: "characters"
+      type: "clues"
     values:
-      layout: "character"
+      layout: "clue"
       title: "{{ title | humanize }}"
