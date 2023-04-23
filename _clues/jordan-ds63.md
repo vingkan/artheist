@@ -29,4 +29,4 @@ Jordan knows Naomi is angry that Octavia owns his famous painting. Naomi origina
 - Jordan sold Octavia his painting even though her bid was actually lower than Naomi’s bid because Octavia threatened to reveal that Jordan hates Roberta.
 - Jordan knows Naomi thinks Octavia legitimately outbid her for his painting.
 - Jordan knows Roberta’s administrative access code to the gallery vault.
-- As the original artist, Jordan knows how to tell his authentic painting from fakes. In the authentic piece, the striped cat in the bottom left frame has its left pupil (from the viewer’s perspective) looking down and to the right.
+- As the original artist, Jordan knows how to tell his authentic painting from fakes. In the authentic piece, the striped cat in the bottom left frame has its left pupil (from the viewer’s perspective) looking down and to the left.
