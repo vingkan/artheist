@@ -66,7 +66,7 @@
 
       footer {
         background-color: #f0f0f0;
-        padding: 10px;
+        padding: 10px 0;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -89,11 +89,34 @@
 
     <div id="error-message"></div>
 
+    <div id="past-codes"></div>
+
     <footer>
       <p>Created by ChatGPT, Edited by Vinesh</p>
     </footer>
 
     <script>
+
+      function getCodes() {
+        const savedCodes = localStorage.getItem('codes')
+        const oldCodes = (savedCodes || '').split(',')
+        return [... new Set(oldCodes)]
+      }
+
+      const pastCodesEl = document.getElementById('past-codes')
+      const pastCodes = getCodes()
+
+      pastCodes.filter(v => v).forEach((filename) => {
+        const p = document.createElement('p')
+        const a = document.createElement('a')
+        const chunks = filename.split('.')[0].split('-')
+        const code = chunks[chunks.length - 1].toUpperCase()
+        a.innerText = code
+        a.href = filename
+        p.appendChild(a)
+        pastCodesEl.appendChild(p)
+      })
+
       const clues = {
         {% for clue in site.clues %}
         "{{ clue.code }}": "{{ site.baseurl }}{{ clue.url }}",
@@ -108,10 +131,15 @@
       form.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const code = codeInput.value;
+        const code = codeInput.value.toLowerCase().trim();
         const filename = clues[code];
 
         if (filename) {
+          const oldCodes = getCodes()
+          const allCodes = [... new Set([...oldCodes, filename])]
+          const newCodes = allCodes.join(',')
+          localStorage.setItem('codes', newCodes)
+
           window.location.href = `${filename}`;
         } else {
           errorMessage.textContent = `Nothing found for code "${code}".`;
